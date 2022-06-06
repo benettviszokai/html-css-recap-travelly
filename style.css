@@ -11,6 +11,7 @@
 }
 a {
     text-decoration: none;
+    color: white;
 }
 a img {
     border: none;
@@ -34,4 +35,108 @@ select {
 
 html {
     font-size: 62.5%; /* 1 rem = 10px */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 2.6rem; 
+}
+
+li, button, label, input, p {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 4.8rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+h4, h5 {
+    font-size: 2.8rem;
+}
+
+button {
+    padding: 2rem 6rem;
+    background: #4c6e97;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Nav & Hero Section */
+
+.main-head {
+    background-color: #131c27;
+    color: white;
+}
+
+nav {
+    min-height: 10vh; /* This is the minimum height, but it can grow */
+    display: flex;
+    width: 90%;
+    margin: auto; /* The margin automatically takes up the empty space */
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+nav ul {
+    display: flex;
+    flex: 1 1 40rem; /* both the ul and the logo took up the same space */
+    list-style: none;
+    justify-content: space-around; /* X axis */
+    align-items: center; /* Y axis */
+}
+
+#logo {
+    display: flex;
+    flex: 2 1 40rem; /* flex-grow | flex-shrink | flex-basis */ 
+    /* flex-grow: 4 => takes up 4* space of the ul, causing the ul to shrink horizontally */
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Pattaya', sans-serif;
+    font-weight: 400;
+}
+
+.hero {
+    min-height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), /* adding linear-gradient to bg img [linear-gradient(fromcolor(), transparent or other color)] */
+        url('./img/landing-page.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column; /* changes x-y directions: justify content: vertical, align-items: horizontal */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h3 {
+    padding: 5rem;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 932px) { /* max-width: this is the breakpoint of flex-wrapping in the nav this time */
+    html {
+        font-size: 45%;
+    }
+
+    #logo {
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    #logo {
+        justify-content: center;
+    }
 }
