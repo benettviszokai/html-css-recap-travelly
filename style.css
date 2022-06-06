@@ -35,6 +35,7 @@ select {
 
 html {
     font-size: 62.5%; /* 1 rem = 10px */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -68,6 +69,12 @@ button {
     background: #4c6e97;
     font-size: 1.8rem;
     cursor: pointer;
+    /* transition: background 0.3s ease-in-out; /* 1. What to change? 2. Time 3. Style 4. Delay */
+    /* animation: cloudAnimation 2s infinite /* forwards */ /* alternate 2s;*/ /* 1. Animation name 2. Time 3. Infinite 4. Alternate 5. Delay */
+} 
+
+button:hover {
+    background: #213042;
 }
 
 /* Nav & Hero Section */
@@ -123,6 +130,64 @@ nav ul {
     padding: 5rem;
 }
 
+/* Locations Section */
+
+#locations {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url('./img/new-york-page.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.locations-head {
+    width: 90%;
+    margin: auto;
+}
+
+.locations-head h2 {
+    padding: 1rem 0rem; /* 1rem = top & bottom, 0rem = left & right */
+    text-decoration: underline;
+}
+
+.locations-head h3 {
+    padding: 4rem 0rem;
+    background: linear-gradient(#131c27, #663b34);
+    background-clip: text; 
+    -webkit-background-clip: text; /* Gradient on text trick */
+    -webkit-text-fill-color: transparent;
+}
+
+.cloud {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    pointer-events: none;
+}
+
+.moving-cloud-1 {
+    animation: cloudAnimation 4s infinite alternate ease-in-out;
+}
+
+.moving-cloud-2 {
+    top: 20%;
+    z-index: -1; /* Pushing it back */
+    opacity: 0.5;
+    animation: cloudAnimation 8s infinite alternate ease-in-out
+}
+
+@keyframes cloudAnimation {
+    from {
+        transform: translate(5%, -5%);
+    }
+    to {
+        transform: translate(0%, 0%);
+    }
+}
+
 /* Media Query */
 
 @media screen and (max-width: 932px) { /* max-width: this is the breakpoint of flex-wrapping in the nav this time */
@@ -133,10 +198,26 @@ nav ul {
     #logo {
         padding: 2rem;
     }
+    .cloud {
+        height: 30rem;
+    }
+    .moving-cloud-1 {
+        z-index: -1;
+    }
+    .moving-cloud-2 {
+        z-index: -2;
+        top: 10%;
+    }
+    
+    
 }
 
 @media screen and (max-width: 670px) {
     #logo {
         justify-content: center;
+    }
+    .locations-head h3 {
+        background: rgba(19, 28, 39, 0.9);
+        -webkit-text-fill-color: white;
     }
 }
